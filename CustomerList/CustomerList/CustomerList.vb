@@ -8,7 +8,7 @@ Option Strict On
 ''' Description     Application to keep a list of customers and a little information that describes their importance.
 ''' </summary>
 
-Public Class frmCustomerList
+Public Class frmCarInventory
 
     Private customerList As New SortedList                                 ' collection of all the customerList in the list
     Private currentCustomerIdentificationNumber As String = String.Empty ' current selected customer identification number
@@ -44,7 +44,7 @@ Public Class frmCustomerList
             If currentCustomerIdentificationNumber.Trim.Length = 0 Then
 
                 ' create a new customer object using the parameterized constructor
-                customer = New Customer(cmbTitles.Text, tbFirstName.Text, tbLastName.Text, chkVIP.Checked)
+                customer = New Customer(cmbMakes.Text, tbModel.Text, tbPrice.Text, chkNew.Checked)
 
                 ' add the customer to the customerList collection
                 ' using the identoification number as the key
@@ -64,14 +64,14 @@ Public Class frmCustomerList
 
                 ' update the data in the specific object
                 ' from the controls
-                customer.Title = cmbTitles.Text
-                customer.FirstName = tbFirstName.Text
-                customer.LastName = tbLastName.Text
-                customer.VeryImportantPersonStatus = chkVIP.Checked
+                customer.Title = cmbMakes.Text
+                customer.FirstName = tbModel.Text
+                customer.LastName = tbPrice.Text
+                customer.VeryImportantPersonStatus = chkNew.Checked
             End If
 
             ' clear the items from the listview control
-            lvwCustomers.Items.Clear()
+            lvwCars.Items.Clear()
 
             ' loop through the customerList collection
             ' and populate the list view
@@ -93,7 +93,7 @@ Public Class frmCustomerList
 
                 ' add the new instantiated and populated ListViewItem
                 ' to the listview control
-                lvwCustomers.Items.Add(customerItem)
+                lvwCars.Items.Add(customerItem)
 
             Next customerEntry
 
@@ -136,10 +136,10 @@ Public Class frmCustomerList
     Private Sub Reset()
 
 
-        tbFirstName.Text = String.Empty
-        tbLastName.Text = String.Empty
-        chkVIP.Checked = False
-        cmbTitles.SelectedIndex = -1
+        tbModel.Text = String.Empty
+        tbPrice.Text = String.Empty
+        chkNew.Checked = False
+        cmbMakes.SelectedIndex = -1
         lbResult.Text = String.Empty
 
         currentCustomerIdentificationNumber = String.Empty
@@ -156,7 +156,7 @@ Public Class frmCustomerList
         Dim outputMessage As String = String.Empty
 
         ' check if the title has been selected
-        If cmbTitles.SelectedIndex = -1 Then
+        If cmbMakes.SelectedIndex = -1 Then
 
             ' If not set the error message
             outputMessage += "Please select the customer's title." & vbCrLf
@@ -167,7 +167,7 @@ Public Class frmCustomerList
         End If
 
         ' check if the first name has been entered
-        If tbFirstName.Text.Trim.Length = 0 Then
+        If tbModel.Text.Trim.Length = 0 Then
 
             ' If not set the error message
             outputMessage += "Please enter the customer's first name." & vbCrLf
@@ -178,7 +178,7 @@ Public Class frmCustomerList
         End If
 
         ' check if the first name has been entered
-        If tbLastName.Text.Trim.Length = 0 Then
+        If tbPrice.Text.Trim.Length = 0 Then
 
             ' If not set the error message
             outputMessage += "Please enter the customer's last name." & vbCrLf
@@ -236,7 +236,7 @@ Public Class frmCustomerList
     ''' </summary>
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
-    Private Sub lvwCustomers_ItemCheck(sender As Object, e As ItemCheckEventArgs) Handles lvwCustomers.ItemCheck
+    Private Sub lvwCustomers_ItemCheck(sender As Object, e As ItemCheckEventArgs) Handles lvwCars.ItemCheck
 
         ' if it is not in edit mode
         If editMode = False Then
@@ -254,28 +254,30 @@ Public Class frmCustomerList
     ''' </summary>
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
-    Private Sub lvwCustomers_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lvwCustomers.SelectedIndexChanged
+    Private Sub lvwCustomers_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lvwCars.SelectedIndexChanged
 
         ' constant that represents the index of the subitem in the list that
         ' holds the customer identification number 
         Const identificationSubItemIndex As Integer = 1
 
         ' Get the customer identification number 
-        currentCustomerIdentificationNumber = lvwCustomers.Items(lvwCustomers.FocusedItem.Index).SubItems(identificationSubItemIndex).Text
+        currentCustomerIdentificationNumber = lvwCars.Items(lvwCars.FocusedItem.Index).SubItems(identificationSubItemIndex).Text
 
         ' Use the customer identification number to get the customer from the collection object
         Dim customer As Customer = CType(customerList.Item(currentCustomerIdentificationNumber), Customer)
 
         ' set the controls on the form
-        tbFirstName.Text = customer.FirstName               ' get the first name and set the text box
-        tbLastName.Text = customer.LastName                 ' get the last name and set the text box
-        cmbTitles.Text = customer.Title                     ' get the title and set the combo box
-        chkVIP.Checked = customer.VeryImportantPersonStatus ' get the very important person status and set the combo box
+        tbModel.Text = customer.FirstName               ' get the first name and set the text box
+        tbPrice.Text = customer.LastName                 ' get the last name and set the text box
+        cmbMakes.Text = customer.Title                     ' get the title and set the combo box
+        chkNew.Checked = customer.VeryImportantPersonStatus ' get the very important person status and set the combo box
 
         lbResult.Text = customer.GetSalutation()
 
 
     End Sub
+
+
 
     'Private Sub lvwCustomers_Click(sender As Object, e As EventArgs) Handles lvwCustomers.Click
     '    lbResult.Text = "aaa"

@@ -9,3 +9,15 @@ c:\users\paolo\documents\visual studio 2015\Projects\CustomerList\CustomerList\o
 c:\users\paolo\documents\visual studio 2015\Projects\CustomerList\CustomerList\obj\Debug\CustomerList.exe
 c:\users\paolo\documents\visual studio 2015\Projects\CustomerList\CustomerList\obj\Debug\CustomerList.xml
 c:\users\paolo\documents\visual studio 2015\Projects\CustomerList\CustomerList\obj\Debug\CustomerList.pdb
+D:\Durham College\Year 1 Sem 2\Net Development I\lab_4\lab4\CustomerList\CustomerList\bin\Debug\CustomerList.exe.config
+D:\Durham College\Year 1 Sem 2\Net Development I\lab_4\lab4\CustomerList\CustomerList\bin\Debug\CustomerList.exe
+D:\Durham College\Year 1 Sem 2\Net Development I\lab_4\lab4\CustomerList\CustomerList\bin\Debug\CustomerList.pdb
+D:\Durham College\Year 1 Sem 2\Net Development I\lab_4\lab4\CustomerList\CustomerList\bin\Debug\CustomerList.xml
+D:\Durham College\Year 1 Sem 2\Net Development I\lab_4\lab4\CustomerList\CustomerList\obj\Debug\CustomerList.vbprojAssemblyReference.cache
+D:\Durham College\Year 1 Sem 2\Net Development I\lab_4\lab4\CustomerList\CustomerList\obj\Debug\CustomerList.frmCustomerList.resources
+D:\Durham College\Year 1 Sem 2\Net Development I\lab_4\lab4\CustomerList\CustomerList\obj\Debug\CustomerList.Resources.resources
+D:\Durham College\Year 1 Sem 2\Net Development I\lab_4\lab4\CustomerList\CustomerList\obj\Debug\CustomerList.vbproj.GenerateResource.cache
+D:\Durham College\Year 1 Sem 2\Net Development I\lab_4\lab4\CustomerList\CustomerList\obj\Debug\CustomerList.vbproj.CoreCompileInputs.cache
+D:\Durham College\Year 1 Sem 2\Net Development I\lab_4\lab4\CustomerList\CustomerList\obj\Debug\CustomerList.exe
+D:\Durham College\Year 1 Sem 2\Net Development I\lab_4\lab4\CustomerList\CustomerList\obj\Debug\CustomerList.xml
+D:\Durham College\Year 1 Sem 2\Net Development I\lab_4\lab4\CustomerList\CustomerList\obj\Debug\CustomerList.pdb
