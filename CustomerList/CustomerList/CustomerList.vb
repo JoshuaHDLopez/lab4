@@ -3,32 +3,32 @@ Option Strict On
 
 ''' <summary>
 ''' Author Name:    Alfred Massardo
-''' Project Name:   CustomerList
+''' Project Name:   carList
 ''' Date:           05-Jan-2018
-''' Description     Application to keep a list of customers and a little information that describes their importance.
+''' Description     Application to keep a list of cars and a little information that describes their importance.
 ''' </summary>
 
 Public Class frmCarInventory
 
-    Private customerList As New SortedList                                 ' collection of all the customerList in the list
-    Private currentCustomerIdentificationNumber As String = String.Empty ' current selected customer identification number
+    Private carList As New SortedList                                 ' collection of all the carList in the list
+    Private currentCarIdentificationNumber As String = String.Empty ' current selected car identification number
     Private editMode As Boolean = False                                 '
 
     ''' <summary>
     ''' btnEnter_Click - Will validate that the data entered into the controls is appropriate.
-    '''                - Once the data is validated a customer object will be create using the  
-    '''                - parameterized constructor. It will also insert the new customer object
-    '''                - into the customerList collection. It will also check to see if the data in
+    '''                - Once the data is validated a car object will be create using the  
+    '''                - parameterized constructor. It will also insert the new car object
+    '''                - into the carList collection. It will also check to see if the data in
     '''                - the controls has been selected from the listview by the user. In that case
-    '''                - it will need to update the data in the specific customer object and the 
+    '''                - it will need to update the data in the specific car object and the 
     '''                - listview as well.
     ''' </summary>
     ''' <param name="sender">Object</param>
     ''' <param name="e">EventArgs</param>
     Private Sub btnEnter_Click(sender As Object, e As EventArgs) Handles btnEnter.Click
 
-        Dim customer As Customer            ' declare a Customer class
-        Dim customerItem As ListViewItem    ' declare a ListViewItem class
+        Dim car As Car            ' declare a car class
+        Dim carItem As ListViewItem    ' declare a ListViewItem class
 
         ' validate the data in the form
         If IsValidInput() = True Then
@@ -39,84 +39,84 @@ Public Class frmCarInventory
             ' 
             lbResult.Text = "It worked!"
 
-            ' if the current customer identification number has a no value
+            ' if the current car identification number has a no value
             ' then this is not an existing item from the listview
-            If currentCustomerIdentificationNumber.Trim.Length = 0 Then
+            If currentCarIdentificationNumber.Trim.Length = 0 Then
 
-                ' create a new customer object using the parameterized constructor
-                customer = New Customer(cmbMakes.Text, tbModel.Text, tbPrice.Text, chkNew.Checked)
+                ' create a new car object using the parameterized constructor
+                car = New Car(cmbMakes.Text, tbModel.Text, tbPrice.Text, chkNewCar.Checked)
 
-                ' add the customer to the customerList collection
+                ' add the car to the carList collection
                 ' using the identoification number as the key
-                ' which will make the customer object easier to
-                ' find in the customerList collection later
-                customerList.Add(customer.IdentificationNumber.ToString(), customer)
+                ' which will make the car object easier to
+                ' find in the carList collection later
+                carList.Add(car.IdentificationNumber.ToString(), car)
 
             Else
-                ' if the current customer identification number has a value
+                ' if the current car identification number has a value
                 ' then the user has selected something from the list view
-                ' so the data in the customer object in the customerList collection
+                ' so the data in the car object in the carList collection
                 ' must be updated
 
-                ' so get the customer from the custmers collection
+                ' so get the car from the custmers collection
                 ' using the selected key
-                customer = CType(customerList.Item(currentCustomerIdentificationNumber), Customer)
+                car = CType(carList.Item(currentCarIdentificationNumber), Car)
 
                 ' update the data in the specific object
                 ' from the controls
-                customer.Title = cmbMakes.Text
-                customer.FirstName = tbModel.Text
-                customer.LastName = tbPrice.Text
-                customer.VeryImportantPersonStatus = chkNew.Checked
+                car.Make = cmbMakes.Text
+                car.model = tbModel.Text
+                car.price = tbPrice.Text
+                car.NewStatus = chkNewCar.Checked
             End If
 
             ' clear the items from the listview control
             lvwCars.Items.Clear()
 
-            ' loop through the customerList collection
+            ' loop through the carList collection
             ' and populate the list view
-            For Each customerEntry As DictionaryEntry In customerList
+            For Each carEntry As DictionaryEntry In carList
 
                 ' instantiate a new ListViewItem
-                customerItem = New ListViewItem()
+                carItem = New ListViewItem()
 
-                ' get the customer from the list
-                customer = CType(customerEntry.Value, Customer)
+                ' get the car from the list
+                car = CType(carEntry.Value, Car)
 
                 ' assign the values to the ckecked control
                 ' and the subitems
-                customerItem.Checked = customer.VeryImportantPersonStatus
-                customerItem.SubItems.Add(customer.IdentificationNumber.ToString())
-                customerItem.SubItems.Add(customer.Title)
-                customerItem.SubItems.Add(customer.FirstName)
-                customerItem.SubItems.Add(customer.LastName)
+                carItem.Checked = car.NewCar
+                carItem.SubItems.Add(car.IdentificationNumber.ToString())
+                carItem.SubItems.Add(car.Make)
+                carItem.SubItems.Add(car.model)
+                carItem.SubItems.Add(car.price)
 
                 ' add the new instantiated and populated ListViewItem
                 ' to the listview control
-                lvwCars.Items.Add(customerItem)
+                lvwCars.Items.Add(carItem)
 
-            Next customerEntry
+            Next carEntry
 
             ' Alternate looping strategy
-            'For index As Integer = 0 To customerList.Count - 1
+            'For index As Integer = 0 To carList.Count - 1
 
             '    ' instantiate a new ListViewItem
-            '    customerItem = New ListViewItem()
+            '    carItem = New ListViewItem()
 
-            '    ' get the customer from the list
-            '    customer = CType(customerList(customerList.GetKey(index)), Customer)
+            '    ' get the car from the list
+            '    car = CType(carList(carList.GetKey(index)), car)
 
             '    ' assign the values to the ckecked control
             '    ' and the subitems
-            '    customerItem.Checked = customer.VeryImportantPersonStatus
-            '    customerItem.SubItems.Add(customer.IdentificationNumber.ToString())
-            '    customerItem.SubItems.Add(customer.Title)
-            '    customerItem.SubItems.Add(customer.FirstName)
-            '    customerItem.SubItems.Add(customer.LastName)
+            '    carItem.Checked = car.VeryImportantPersonStatus
+            '    carItem.SubItems.Add(car.IdentificationNumber.ToString())
+            '    carItem.SubItems.Add(car.Title)
+            '    carItem.SubItems.Add(car.FirstName)
+            '    carItem.SubItems.Add(car.LastName)
 
             '    ' add the new instantiated and populated ListViewItem
             '    ' to the listview control
-            '    lvwCustomers.Items.Add(customerItem)
+            '    lvwcars.Items.Add(carItem)
 
             'Next index
 
@@ -138,11 +138,11 @@ Public Class frmCarInventory
 
         tbModel.Text = String.Empty
         tbPrice.Text = String.Empty
-        chkNew.Checked = False
+        chkNewCar.Checked = False
         cmbMakes.SelectedIndex = -1
         lbResult.Text = String.Empty
 
-        currentCustomerIdentificationNumber = String.Empty
+        currentCarIdentificationNumber = String.Empty
 
     End Sub
 
@@ -159,7 +159,7 @@ Public Class frmCarInventory
         If cmbMakes.SelectedIndex = -1 Then
 
             ' If not set the error message
-            outputMessage += "Please select the customer's title." & vbCrLf
+            outputMessage += "Please select the car's title." & vbCrLf
 
             ' And, set the return value to false
             returnValue = False
@@ -170,7 +170,7 @@ Public Class frmCarInventory
         If tbModel.Text.Trim.Length = 0 Then
 
             ' If not set the error message
-            outputMessage += "Please enter the customer's first name." & vbCrLf
+            outputMessage += "Please enter the car's first name." & vbCrLf
 
             ' And, set the return value to false
             returnValue = False
@@ -181,7 +181,7 @@ Public Class frmCarInventory
         If tbPrice.Text.Trim.Length = 0 Then
 
             ' If not set the error message
-            outputMessage += "Please enter the customer's last name." & vbCrLf
+            outputMessage += "Please enter the car's last name." & vbCrLf
 
             ' And, set the return value to false
             returnValue = False
@@ -231,12 +231,12 @@ Public Class frmCarInventory
     End Sub
 
     ''' <summary>
-    ''' lvwCustomers_ItemCheck - used to prevent the user from checking the check box in the list view
+    ''' lvwcars_ItemCheck - used to prevent the user from checking the check box in the list view
     '''                        - if it is not in edit mode
     ''' </summary>
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
-    Private Sub lvwCustomers_ItemCheck(sender As Object, e As ItemCheckEventArgs) Handles lvwCars.ItemCheck
+    Private Sub lvwCars_ItemCheck(sender As Object, e As ItemCheckEventArgs) Handles lvwCars.ItemCheck
 
         ' if it is not in edit mode
         If editMode = False Then
@@ -250,36 +250,36 @@ Public Class frmCarInventory
     End Sub
 
     ''' <summary>
-    ''' lvwCustomers_SelectedIndexChanged - when the user selected a row in the list it will populate the fields for editing
+    ''' lvwcars_SelectedIndexChanged - when the user selected a row in the list it will populate the fields for editing
     ''' </summary>
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
-    Private Sub lvwCustomers_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lvwCars.SelectedIndexChanged
+    Private Sub lvwCars_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lvwCars.SelectedIndexChanged
 
         ' constant that represents the index of the subitem in the list that
-        ' holds the customer identification number 
+        ' holds the car identification number 
         Const identificationSubItemIndex As Integer = 1
 
-        ' Get the customer identification number 
-        currentCustomerIdentificationNumber = lvwCars.Items(lvwCars.FocusedItem.Index).SubItems(identificationSubItemIndex).Text
+        ' Get the car identification number 
+        currentCarIdentificationNumber = lvwCars.Items(lvwCars.FocusedItem.Index).SubItems(identificationSubItemIndex).Text
 
-        ' Use the customer identification number to get the customer from the collection object
-        Dim customer As Customer = CType(customerList.Item(currentCustomerIdentificationNumber), Customer)
+        ' Use the car identification number to get the car from the collection object
+        Dim car As Car = CType(carList.Item(currentCarIdentificationNumber), Car)
 
         ' set the controls on the form
-        tbModel.Text = customer.FirstName               ' get the first name and set the text box
-        tbPrice.Text = customer.LastName                 ' get the last name and set the text box
-        cmbMakes.Text = customer.Title                     ' get the title and set the combo box
-        chkNew.Checked = customer.VeryImportantPersonStatus ' get the very important person status and set the combo box
+        tbModel.Text = car.model               ' get the first name and set the text box
+        tbPrice.Text = car.price                ' get the last name and set the text box
+        cmbMakes.Text = car.Make                 ' get the title and set the combo box
+        chkNewCar.Checked = car.NewCar ' get the very important person status and set the combo box
 
-        lbResult.Text = customer.GetSalutation()
+        lbResult.Text = car.GetSalutation()
 
 
     End Sub
 
 
 
-    'Private Sub lvwCustomers_Click(sender As Object, e As EventArgs) Handles lvwCustomers.Click
+    'Private Sub lvwCars_Click(sender As Object, e As EventArgs) Handles lvwCars.Click
     '    lbResult.Text = "aaa"
     'End Sub
 End Class

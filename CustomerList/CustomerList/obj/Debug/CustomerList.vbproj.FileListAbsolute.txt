@@ -21,3 +21,4 @@ D:\Durham College\Year 1 Sem 2\Net Development I\lab_4\lab4\CustomerList\Custome
 D:\Durham College\Year 1 Sem 2\Net Development I\lab_4\lab4\CustomerList\CustomerList\obj\Debug\CustomerList.exe
 D:\Durham College\Year 1 Sem 2\Net Development I\lab_4\lab4\CustomerList\CustomerList\obj\Debug\CustomerList.xml
 D:\Durham College\Year 1 Sem 2\Net Development I\lab_4\lab4\CustomerList\CustomerList\obj\Debug\CustomerList.pdb
+D:\Durham College\Year 1 Sem 2\Net Development I\lab_4\lab4\CustomerList\CustomerList\obj\Debug\CustomerList.frmCarInventory.resources

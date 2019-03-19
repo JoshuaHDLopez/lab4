@@ -9,6 +9,10 @@ Public Class Car
     Private carYear As Integer = 0                     'private variable to hold the car's year
     Private carPrice As Double = 0.0                   ' private variable to hold the car's price
     Private carNewStatus As Boolean = False           ' private variable to hold the car's status
+    Private text1 As String
+    Private text2 As String
+    Private text3 As String
+    Private checked As Object
 
     ''' <summary>
     ''' Constructor - Default - creates a new car object
@@ -18,6 +22,13 @@ Public Class Car
         carCount += 1      ' increment the shared/static variable counter by 1
         carIdentificationNumber = carCount ' assign the cars id
 
+    End Sub
+
+    Public Sub New(text1 As String, text2 As String, text3 As String, checked As Object)
+        Me.text1 = text1
+        Me.text2 = text2
+        Me.text3 = text3
+        Me.checked = checked
     End Sub
 
     ''' <summary>
@@ -136,7 +147,7 @@ Public Class Car
     ''' <returns>String</returns>
     Public Function GetSalutation() As String
 
-        Return "Hi my name is " & cartTitle & " " & cartFirstName & " " & cartLastName & ", " & IIf(cartVeryImportantPersonStatus = True, "I am a VIP", "I am not a VIP").ToString()
+        Return "Hi my name is " & carTitle & " " & carFirstName & " " & carLastName & ", " & IIf(carVeryImportantPersonStatus = True, "I am a VIP", "I am not a VIP").ToString()
 
     End Function
 

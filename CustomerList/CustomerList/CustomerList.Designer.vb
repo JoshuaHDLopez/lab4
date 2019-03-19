@@ -32,18 +32,18 @@ Partial Class frmCarInventory
         Me.lbMake = New System.Windows.Forms.Label()
         Me.lbModel = New System.Windows.Forms.Label()
         Me.lbPrice = New System.Windows.Forms.Label()
-        Me.chkNew = New System.Windows.Forms.CheckBox()
+        Me.chkNewCar = New System.Windows.Forms.CheckBox()
         Me.lvwCars = New System.Windows.Forms.ListView()
         Me.colNew = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.colID = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.colMake = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.colModel = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.colYear = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.colPrice = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.CustomerToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.lbResult = New System.Windows.Forms.Label()
-        Me.lbYear = New System.Windows.Forms.Label()
         Me.cmbYears = New System.Windows.Forms.ComboBox()
-        Me.colYear = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.lbYear = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'btnEnter
@@ -143,18 +143,18 @@ Partial Class frmCarInventory
         Me.lbPrice.Text = "&Price:"
         Me.lbPrice.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'chkNew
+        'chkNewCar
         '
-        Me.chkNew.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.chkNew.Location = New System.Drawing.Point(68, 144)
-        Me.chkNew.Margin = New System.Windows.Forms.Padding(4)
-        Me.chkNew.Name = "chkNew"
-        Me.chkNew.Size = New System.Drawing.Size(61, 30)
-        Me.chkNew.TabIndex = 6
-        Me.chkNew.Text = "&New:"
-        Me.chkNew.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.CustomerToolTip.SetToolTip(Me.chkNew, "Check if car is new.")
-        Me.chkNew.UseVisualStyleBackColor = True
+        Me.chkNewCar.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.chkNewCar.Location = New System.Drawing.Point(68, 144)
+        Me.chkNewCar.Margin = New System.Windows.Forms.Padding(4)
+        Me.chkNewCar.Name = "chkNewCar"
+        Me.chkNewCar.Size = New System.Drawing.Size(61, 30)
+        Me.chkNewCar.TabIndex = 6
+        Me.chkNewCar.Text = "&New:"
+        Me.chkNewCar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.CustomerToolTip.SetToolTip(Me.chkNewCar, "Check if car is new.")
+        Me.chkNewCar.UseVisualStyleBackColor = True
         '
         'lvwCars
         '
@@ -188,9 +188,12 @@ Partial Class frmCarInventory
         '
         Me.colModel.Text = "Model"
         '
+        'colYear
+        '
+        Me.colYear.Text = "Year"
+        '
         'colPrice
         '
-        Me.colPrice.DisplayIndex = 4
         Me.colPrice.Text = "Price"
         '
         'lbResult
@@ -203,15 +206,6 @@ Partial Class frmCarInventory
         Me.lbResult.TabIndex = 8
         Me.CustomerToolTip.SetToolTip(Me.lbResult, "Success or Error message will appear here.")
         '
-        'lbYear
-        '
-        Me.lbYear.Location = New System.Drawing.Point(6, 78)
-        Me.lbYear.Name = "lbYear"
-        Me.lbYear.Size = New System.Drawing.Size(100, 23)
-        Me.lbYear.TabIndex = 12
-        Me.lbYear.Text = "&Year:"
-        Me.lbYear.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
         'cmbYears
         '
         Me.cmbYears.FormattingEnabled = True
@@ -221,9 +215,14 @@ Partial Class frmCarInventory
         Me.cmbYears.TabIndex = 13
         Me.CustomerToolTip.SetToolTip(Me.cmbYears, "Select the car's Year.")
         '
-        'colYear
+        'lbYear
         '
-        Me.colYear.Text = "Year"
+        Me.lbYear.Location = New System.Drawing.Point(6, 78)
+        Me.lbYear.Name = "lbYear"
+        Me.lbYear.Size = New System.Drawing.Size(100, 23)
+        Me.lbYear.TabIndex = 12
+        Me.lbYear.Text = "&Year:"
+        Me.lbYear.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'frmCarInventory
         '
@@ -236,7 +235,7 @@ Partial Class frmCarInventory
         Me.Controls.Add(Me.lbYear)
         Me.Controls.Add(Me.lbResult)
         Me.Controls.Add(Me.lvwCars)
-        Me.Controls.Add(Me.chkNew)
+        Me.Controls.Add(Me.chkNewCar)
         Me.Controls.Add(Me.lbPrice)
         Me.Controls.Add(Me.lbModel)
         Me.Controls.Add(Me.lbMake)
@@ -266,7 +265,7 @@ Partial Class frmCarInventory
     Friend WithEvents lbMake As Label
     Friend WithEvents lbModel As Label
     Friend WithEvents lbPrice As Label
-    Friend WithEvents chkNew As CheckBox
+    Friend WithEvents chkNewCar As CheckBox
     Friend WithEvents lvwCars As ListView
     Friend WithEvents colID As ColumnHeader
     Friend WithEvents colModel As ColumnHeader
