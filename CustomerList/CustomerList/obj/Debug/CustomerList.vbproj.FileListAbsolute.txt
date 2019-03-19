@@ -14,7 +14,6 @@ D:\Durham College\Year 1 Sem 2\Net Development I\lab_4\lab4\CustomerList\Custome
 D:\Durham College\Year 1 Sem 2\Net Development I\lab_4\lab4\CustomerList\CustomerList\bin\Debug\CustomerList.pdb
 D:\Durham College\Year 1 Sem 2\Net Development I\lab_4\lab4\CustomerList\CustomerList\bin\Debug\CustomerList.xml
 D:\Durham College\Year 1 Sem 2\Net Development I\lab_4\lab4\CustomerList\CustomerList\obj\Debug\CustomerList.vbprojAssemblyReference.cache
-D:\Durham College\Year 1 Sem 2\Net Development I\lab_4\lab4\CustomerList\CustomerList\obj\Debug\CustomerList.frmCustomerList.resources
 D:\Durham College\Year 1 Sem 2\Net Development I\lab_4\lab4\CustomerList\CustomerList\obj\Debug\CustomerList.Resources.resources
 D:\Durham College\Year 1 Sem 2\Net Development I\lab_4\lab4\CustomerList\CustomerList\obj\Debug\CustomerList.vbproj.GenerateResource.cache
 D:\Durham College\Year 1 Sem 2\Net Development I\lab_4\lab4\CustomerList\CustomerList\obj\Debug\CustomerList.vbproj.CoreCompileInputs.cache

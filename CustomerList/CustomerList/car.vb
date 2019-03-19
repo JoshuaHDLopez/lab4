@@ -25,12 +25,12 @@ Public Class Car
 
     End Sub
 
-    Public Sub New(text1 As String, text2 As String, text3 As String, text4 As String, checked As Object)
-        Me.text1 = text1
-        Me.text2 = text2
-        Me.text3 = text3
-        Me.text4 = text4
-        Me.checked = checked
+    Public Sub New(carMake As String, carModel As String, carYear As String, carPrice As String, carNewStatus As Boolean)
+        Me.carMake = carMake
+        Me.carModel = carModel
+        Me.carYear = CInt(carYear)
+        Me.carPrice = CDbl(carPrice)
+        Me.carNewStatus = carNewStatus
     End Sub
 
     ''' <summary>
@@ -41,7 +41,7 @@ Public Class Car
     ''' <param name="year"></param>
     ''' <param name="price"></param>
     ''' <param name="newStatus"></param>
-    Public Sub New(make As String, model As String, year As Integer, price As Double, newStatus As Boolean)
+    Public Sub New(make As String, model As String, year As Integer, price As Double, newCar As Boolean)
 
         ' call the other constructor 
         ' to set the car count and
@@ -53,7 +53,7 @@ Public Class Car
         carModel = model  ' set the car model
         carYear = year             ' set the car Year      
         carPrice = price    ' set the car price
-        carNewStatus = newStatus        ' set the car status
+        carNewStatus = NewStatus        ' set the car status
 
     End Sub
 
@@ -121,7 +121,7 @@ Public Class Car
     ''' Year property - Gets and Sets the year of a car
     ''' </summary>
     ''' <returns>Integer</returns>
-    Public Property year() As Integer
+    Public Property years() As Integer
         Get
             Return carYear
         End Get
@@ -143,13 +143,15 @@ Public Class Car
         End Set
     End Property
 
+    Public Property NewCar As Boolean
+
     ''' <summary>
     ''' GetSalutation is a function that a salutation based on the private properties within the class scope
     ''' </summary>
     ''' <returns>String</returns>
     Public Function GetSalutation() As String
 
-        Return "Hi my name is " & carTitle & " " & carFirstName & " " & carLastName & ", " & IIf(carVeryImportantPersonStatus = True, "I am a VIP", "I am not a VIP").ToString()
+        Return "The car entered is a " & carYear & " " & carMake & " " & carModel & ", and is $" & carPrice & " and " & IIf(carNewStatus = True, "It's a new car!", "This car is not new.").ToString()
 
     End Function
 
