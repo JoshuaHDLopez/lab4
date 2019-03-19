@@ -54,7 +54,7 @@ Partial Class frmCarInventory
         Me.btnEnter.Size = New System.Drawing.Size(100, 28)
         Me.btnEnter.TabIndex = 9
         Me.btnEnter.Text = "&Enter"
-        Me.CustomerToolTip.SetToolTip(Me.btnEnter, "Click to add a customer.")
+        Me.CustomerToolTip.SetToolTip(Me.btnEnter, "Click to add a car.")
         Me.btnEnter.UseVisualStyleBackColor = True
         '
         'btnReset
@@ -88,7 +88,7 @@ Partial Class frmCarInventory
         Me.tbModel.Name = "tbModel"
         Me.tbModel.Size = New System.Drawing.Size(160, 22)
         Me.tbModel.TabIndex = 3
-        Me.CustomerToolTip.SetToolTip(Me.tbModel, "Type the customer's first name here.")
+        Me.CustomerToolTip.SetToolTip(Me.tbModel, "Type the car's model here.")
         '
         'tbPrice
         '
@@ -97,7 +97,7 @@ Partial Class frmCarInventory
         Me.tbPrice.Name = "tbPrice"
         Me.tbPrice.Size = New System.Drawing.Size(160, 22)
         Me.tbPrice.TabIndex = 5
-        Me.CustomerToolTip.SetToolTip(Me.tbPrice, "Type the customer's last name here.")
+        Me.CustomerToolTip.SetToolTip(Me.tbPrice, "Type the car's price here.")
         '
         'cmbMakes
         '
@@ -109,7 +109,7 @@ Partial Class frmCarInventory
         Me.cmbMakes.Name = "cmbMakes"
         Me.cmbMakes.Size = New System.Drawing.Size(160, 24)
         Me.cmbMakes.TabIndex = 1
-        Me.CustomerToolTip.SetToolTip(Me.cmbMakes, "Select the customer's title.")
+        Me.CustomerToolTip.SetToolTip(Me.cmbMakes, "Select the car's Make.")
         '
         'lbMake
         '
@@ -124,7 +124,7 @@ Partial Class frmCarInventory
         '
         'lbModel
         '
-        Me.lbModel.Location = New System.Drawing.Point(16, 42)
+        Me.lbModel.Location = New System.Drawing.Point(18, 48)
         Me.lbModel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lbModel.Name = "lbModel"
         Me.lbModel.Size = New System.Drawing.Size(88, 16)
@@ -153,7 +153,7 @@ Partial Class frmCarInventory
         Me.chkNew.TabIndex = 6
         Me.chkNew.Text = "&New:"
         Me.chkNew.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.CustomerToolTip.SetToolTip(Me.chkNew, "Check to make the customer a VIP.")
+        Me.CustomerToolTip.SetToolTip(Me.chkNew, "Check if car is new.")
         Me.chkNew.UseVisualStyleBackColor = True
         '
         'lvwCars
@@ -168,7 +168,7 @@ Partial Class frmCarInventory
         Me.lvwCars.Name = "lvwCars"
         Me.lvwCars.Size = New System.Drawing.Size(439, 302)
         Me.lvwCars.TabIndex = 7
-        Me.CustomerToolTip.SetToolTip(Me.lvwCars, "Select a customer to modify.")
+        Me.CustomerToolTip.SetToolTip(Me.lvwCars, "Select a car to modify.")
         Me.lvwCars.UseCompatibleStateImageBehavior = False
         Me.lvwCars.View = System.Windows.Forms.View.Details
         '
@@ -205,11 +205,12 @@ Partial Class frmCarInventory
         '
         'lbYear
         '
-        Me.lbYear.Location = New System.Drawing.Point(53, 84)
+        Me.lbYear.Location = New System.Drawing.Point(6, 78)
         Me.lbYear.Name = "lbYear"
         Me.lbYear.Size = New System.Drawing.Size(100, 23)
         Me.lbYear.TabIndex = 12
         Me.lbYear.Text = "&Year:"
+        Me.lbYear.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'cmbYears
         '
@@ -218,6 +219,7 @@ Partial Class frmCarInventory
         Me.cmbYears.Name = "cmbYears"
         Me.cmbYears.Size = New System.Drawing.Size(160, 24)
         Me.cmbYears.TabIndex = 13
+        Me.CustomerToolTip.SetToolTip(Me.cmbYears, "Select the car's Year.")
         '
         'colYear
         '
