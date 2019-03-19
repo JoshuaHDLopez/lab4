@@ -44,7 +44,7 @@ Public Class frmCarInventory
             If currentCarIdentificationNumber.Trim.Length = 0 Then
 
                 ' create a new car object using the parameterized constructor
-                car = New Car(cmbMakes.Text, tbModel.Text, tbPrice.Text, chkNewCar.Checked)
+                car = New Car(cmbMakes.Text, tbModel.Text, cmbYears.Text, tbPrice.Text, chkNewCar.Checked)
 
                 ' add the car to the carList collection
                 ' using the identoification number as the key
@@ -66,6 +66,7 @@ Public Class frmCarInventory
                 ' from the controls
                 car.Make = cmbMakes.Text
                 car.model = tbModel.Text
+                car.year = cmbYears.Text
                 car.price = tbPrice.Text
                 car.NewStatus = chkNewCar.Checked
             End If
@@ -89,6 +90,7 @@ Public Class frmCarInventory
                 carItem.SubItems.Add(car.IdentificationNumber.ToString())
                 carItem.SubItems.Add(car.Make)
                 carItem.SubItems.Add(car.model)
+                carItem.SubItems.Add(car.year)
                 carItem.SubItems.Add(car.price)
 
                 ' add the new instantiated and populated ListViewItem
@@ -140,6 +142,7 @@ Public Class frmCarInventory
         tbPrice.Text = String.Empty
         chkNewCar.Checked = False
         cmbMakes.SelectedIndex = -1
+        cmbYears.SelectedIndex = -1
         lbResult.Text = String.Empty
 
         currentCarIdentificationNumber = String.Empty
@@ -159,7 +162,7 @@ Public Class frmCarInventory
         If cmbMakes.SelectedIndex = -1 Then
 
             ' If not set the error message
-            outputMessage += "Please select the car's title." & vbCrLf
+            outputMessage += "Please select the car's make." & vbCrLf
 
             ' And, set the return value to false
             returnValue = False
@@ -170,7 +173,18 @@ Public Class frmCarInventory
         If tbModel.Text.Trim.Length = 0 Then
 
             ' If not set the error message
-            outputMessage += "Please enter the car's first name." & vbCrLf
+            outputMessage += "Please enter the car's model." & vbCrLf
+
+            ' And, set the return value to false
+            returnValue = False
+
+        End If
+
+        ' check if the title has been selected
+        If cmbYears.SelectedIndex = -1 Then
+
+            ' If not set the error message
+            outputMessage += "Please select the car's year." & vbCrLf
 
             ' And, set the return value to false
             returnValue = False
@@ -181,7 +195,7 @@ Public Class frmCarInventory
         If tbPrice.Text.Trim.Length = 0 Then
 
             ' If not set the error message
-            outputMessage += "Please enter the car's last name." & vbCrLf
+            outputMessage += "Please enter the car's price." & vbCrLf
 
             ' And, set the return value to false
             returnValue = False
@@ -268,6 +282,7 @@ Public Class frmCarInventory
 
         ' set the controls on the form
         tbModel.Text = car.model               ' get the first name and set the text box
+        cmbYears.Text = car.year
         tbPrice.Text = car.price                ' get the last name and set the text box
         cmbMakes.Text = car.Make                 ' get the title and set the combo box
         chkNewCar.Checked = car.NewCar ' get the very important person status and set the combo box
