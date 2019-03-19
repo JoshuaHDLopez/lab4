@@ -292,6 +292,10 @@ Public Class frmCarInventory
 
     End Sub
 
+    Private Sub chkNewCar_CheckedChanged(sender As Object, e As EventArgs) Handles chkNewCar.CheckedChanged
+
+    End Sub
+
 
 
     'Private Sub lvwCars_Click(sender As Object, e As EventArgs) Handles lvwCars.Click

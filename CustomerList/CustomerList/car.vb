@@ -12,6 +12,7 @@ Public Class Car
     Private text1 As String
     Private text2 As String
     Private text3 As String
+    Private text4 As String
     Private checked As Object
 
     ''' <summary>
@@ -24,10 +25,11 @@ Public Class Car
 
     End Sub
 
-    Public Sub New(text1 As String, text2 As String, text3 As String, checked As Object)
+    Public Sub New(text1 As String, text2 As String, text3 As String, text4 As String, checked As Object)
         Me.text1 = text1
         Me.text2 = text2
         Me.text3 = text3
+        Me.text4 = text4
         Me.checked = checked
     End Sub
 

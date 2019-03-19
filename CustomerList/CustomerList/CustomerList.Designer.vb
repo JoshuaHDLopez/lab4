@@ -137,9 +137,9 @@ Partial Class frmCarInventory
         'chkNewCar
         '
         Me.chkNewCar.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.chkNewCar.Location = New System.Drawing.Point(51, 117)
+        Me.chkNewCar.Location = New System.Drawing.Point(17, 119)
         Me.chkNewCar.Name = "chkNewCar"
-        Me.chkNewCar.Size = New System.Drawing.Size(46, 24)
+        Me.chkNewCar.Size = New System.Drawing.Size(76, 24)
         Me.chkNewCar.TabIndex = 6
         Me.chkNewCar.Text = "&New:"
         Me.chkNewCar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -155,7 +155,7 @@ Partial Class frmCarInventory
         Me.lvwCars.Location = New System.Drawing.Point(2, 142)
         Me.lvwCars.MultiSelect = False
         Me.lvwCars.Name = "lvwCars"
-        Me.lvwCars.Size = New System.Drawing.Size(330, 246)
+        Me.lvwCars.Size = New System.Drawing.Size(350, 246)
         Me.lvwCars.TabIndex = 7
         Me.CustomerToolTip.SetToolTip(Me.lvwCars, "Select a car to modify.")
         Me.lvwCars.UseCompatibleStateImageBehavior = False
@@ -223,7 +223,7 @@ Partial Class frmCarInventory
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.btnExit
-        Me.ClientSize = New System.Drawing.Size(334, 484)
+        Me.ClientSize = New System.Drawing.Size(380, 484)
         Me.Controls.Add(Me.cmbYears)
         Me.Controls.Add(Me.lbYear)
         Me.Controls.Add(Me.lbResult)
